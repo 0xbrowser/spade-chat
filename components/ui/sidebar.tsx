@@ -762,7 +762,7 @@ function SidebarAccount({
         )}
         {...props}
       >
-        <div className="aui-sidebar-footer-icon-wrapper flex aspect-square size-6 items-center justify-center rounded-full text-white bg-white/10 shrink-0">
+        <div className="aui-sidebar-footer-icon-wrapper flex aspect-square size-7 items-center justify-center rounded-full text-white bg-white/10 shrink-0">
           {Icon && <Icon className="aui-sidebar-footer-icon size-4" />}
         </div>
         {state !== "collapsed" && (
