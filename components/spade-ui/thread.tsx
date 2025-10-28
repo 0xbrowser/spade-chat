@@ -24,14 +24,14 @@ import { LazyMotion, MotionConfig, domAnimation } from "motion/react";
 import * as m from "motion/react-m";
 
 import { Button } from "@/components/ui/button";
-import { MarkdownText } from "@/components/assistant-ui/markdown-text";
-import { ToolFallback } from "@/components/assistant-ui/tool-fallback";
-import { TooltipIconButton } from "@/components/assistant-ui/tooltip-icon-button";
+import { MarkdownText } from "@/components/spade-ui/markdown-text";
+import { ToolFallback } from "@/components/spade-ui/tool-fallback";
+import { TooltipIconButton } from "@/components/spade-ui/tooltip-icon-button";
 import {
   ComposerAddAttachment,
   ComposerAttachments,
   UserMessageAttachments,
-} from "@/components/assistant-ui/attachment";
+} from "@/components/spade-ui/attachment";
 
 import { cn } from "@/lib/utils";
 
@@ -40,7 +40,7 @@ export const Thread: FC = () => {
     <LazyMotion features={domAnimation}>
       <MotionConfig reducedMotion="user">
         <ThreadPrimitive.Root
-          className="aui-root aui-thread-root @container flex h-full flex-col bg-background"
+          className="aui-root aui-thread-root @container flex h-full flex-col bg-sidebar"
           style={{
             ["--thread-max-width" as string]: "44rem",
           }}
@@ -118,24 +118,24 @@ const ThreadSuggestions: FC = () => {
     <div className="aui-thread-welcome-suggestions grid w-full gap-2 pb-4 @md:grid-cols-2">
       {[
         {
-          title: "What's the weather",
-          label: "in San Francisco?",
-          action: "What's the weather in San Francisco?",
+          title: "What is DeFi",
+          label: "and how does it work?",
+          action: "What is DeFi and how does it work?",
         },
         {
-          title: "Explain React hooks",
-          label: "like useState and useEffect",
-          action: "Explain React hooks like useState and useEffect",
+          title: "Explain liquidity pools",
+          label: "in decentralized exchanges",
+          action: "Explain liquidity pools in decentralized exchanges",
         },
         {
-          title: "Write a SQL query",
-          label: "to find top customers",
-          action: "Write a SQL query to find top customers",
+          title: "What are smart contracts",
+          label: "on Ethereum?",
+          action: "What are smart contracts on Ethereum?",
         },
         {
-          title: "Create a meal plan",
-          label: "for healthy weight loss",
-          action: "Create a meal plan for healthy weight loss",
+          title: "How does yield farming",
+          label: "generate returns?",
+          action: "How does yield farming generate returns?",
         },
       ].map((suggestedAction, index) => (
         <m.div
@@ -172,7 +172,7 @@ const ThreadSuggestions: FC = () => {
 
 const Composer: FC = () => {
   return (
-    <div className="aui-composer-wrapper sticky bottom-0 mx-auto flex w-full max-w-[var(--thread-max-width)] flex-col gap-4 overflow-visible rounded-t-3xl bg-background pb-4 md:pb-6">
+    <div className="aui-composer-wrapper sticky bottom-0 mx-auto flex w-full max-w-[var(--thread-max-width)] flex-col gap-4 overflow-visible rounded-t-3xl bg-sidebar pb-4 md:pb-6">
       <ThreadScrollToBottom />
       <ComposerPrimitive.Root className="aui-composer-root relative flex w-full flex-col rounded-3xl border border-border bg-muted px-1 pt-2 shadow-[0_9px_9px_0px_rgba(0,0,0,0.01),0_2px_5px_0px_rgba(0,0,0,0.06)] dark:border-muted-foreground/15">
         <ComposerAttachments />

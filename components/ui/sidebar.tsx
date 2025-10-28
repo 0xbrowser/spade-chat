@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, VariantProps } from "class-variance-authority";
-import { PanelLeftIcon } from "lucide-react";
+import { PanelLeftIcon, Spade } from "lucide-react";
 
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
@@ -29,7 +29,7 @@ const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
 const SIDEBAR_WIDTH = "16rem";
 const SIDEBAR_WIDTH_MOBILE = "18rem";
-const SIDEBAR_WIDTH_ICON = "3rem";
+const SIDEBAR_WIDTH_ICON = "3.5rem";
 const SIDEBAR_KEYBOARD_SHORTCUT = "b";
 
 type SidebarContextProps = {
@@ -253,12 +253,48 @@ function Sidebar({
   );
 }
 
+function SidebarLogo({
+  className,
+  onClick,
+  ...props
+}: React.ComponentProps<typeof Button>) {
+  const { toggleSidebar, state } = useSidebar();
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  return (
+    <Button
+      data-sidebar="logo"
+      data-slot="sidebar-logo"
+      variant="ghost"
+      size="icon"
+      className={cn(
+        "aui-sidebar-logo",
+        state === "collapsed" && "cursor-e-resize",
+        className
+      )}
+      onClick={(event) => {
+        onClick?.(event);
+        if (state === "expanded") {
+          window.open("https://spade.money", "_blank");
+        } else {
+          toggleSidebar();
+        }
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      {...props}
+    >
+      {state === "collapsed" && isHovered ? <PanelLeftIcon /> : <Spade />}
+    </Button>
+  );
+}
+
 function SidebarTrigger({
   className,
   onClick,
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { toggleSidebar } = useSidebar();
+  const { toggleSidebar, state } = useSidebar();
 
   return (
     <Button
@@ -266,7 +302,11 @@ function SidebarTrigger({
       data-slot="sidebar-trigger"
       variant="ghost"
       size="icon"
-      className={cn("size-7", className)}
+      className={cn(
+        "aui-sidebar-trigger cursor-w-resize",
+        state === "collapsed" && "hidden",
+        className,
+      )}
       onClick={(event) => {
         onClick?.(event);
         toggleSidebar();
@@ -274,7 +314,6 @@ function SidebarTrigger({
       {...props}
     >
       <PanelLeftIcon />
-      <span className="sr-only">Toggle Sidebar</span>
     </Button>
   );
 }
@@ -309,7 +348,7 @@ function SidebarInset({ className, ...props }: React.ComponentProps<"main">) {
     <main
       data-slot="sidebar-inset"
       className={cn(
-        "relative flex w-full flex-1 flex-col bg-background",
+        "relative flex w-full flex-1 flex-col bg-sidebar",
         "md:peer-data-[variant=inset]:m-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow-sm md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-2",
         className,
       )}
@@ -698,8 +737,50 @@ function SidebarMenuSubButton({
   );
 }
 
+function SidebarAccount({
+  icon: Icon,
+  title = "Account",
+  status = "Online",
+  className,
+  ...props
+}: React.ComponentProps<"button"> & {
+  icon?: React.ElementType;
+  title?: string;
+  status?: string;
+}) {
+  const { state } = useSidebar();
+
+  return (
+    <div className="h-12 flex items-center">
+      <button
+        data-sidebar="account"
+        data-slot="sidebar-account"
+        className={cn(
+          "aui-sidebar-account flex items-center justify-start p-2 gap-2 rounded-lg text-left text-sm hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors",
+          state === "collapsed" ? "size-10" : "w-full py-2",
+          className
+        )}
+        {...props}
+      >
+        <div className="aui-sidebar-footer-icon-wrapper flex aspect-square size-6 items-center justify-center rounded-full text-white bg-white/10 shrink-0">
+          {Icon && <Icon className="aui-sidebar-footer-icon size-4" />}
+        </div>
+        {state !== "collapsed" && (
+          <div className="aui-sidebar-footer-heading flex flex-col gap-0.5 leading-none">
+            <span className="aui-sidebar-footer-title font-semibold">
+              {title}
+            </span>
+            <span className="text-xs">{status}</span>
+          </div>
+        )}
+      </button>
+    </div>
+  );
+}
+
 export {
   Sidebar,
+  SidebarAccount,
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
@@ -709,6 +790,7 @@ export {
   SidebarHeader,
   SidebarInput,
   SidebarInset,
+  SidebarLogo,
   SidebarMenu,
   SidebarMenuAction,
   SidebarMenuBadge,

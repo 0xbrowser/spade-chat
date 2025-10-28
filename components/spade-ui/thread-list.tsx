@@ -7,8 +7,9 @@ import {
 import { ArchiveIcon, PlusIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { TooltipIconButton } from "@/components/assistant-ui/tooltip-icon-button";
+import { TooltipIconButton } from "@/components/spade-ui/tooltip-icon-button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useSidebar } from "@/components/ui/sidebar";
 
 export const ThreadList: FC = () => {
   return (
@@ -20,14 +21,18 @@ export const ThreadList: FC = () => {
 };
 
 const ThreadListNew: FC = () => {
+  const { state } = useSidebar();
+  const isCollapsed = state === "collapsed";
+
   return (
     <ThreadListPrimitive.New asChild>
       <Button
-        className="aui-thread-list-new flex items-center justify-start gap-1 rounded-lg px-2.5 py-2 text-start hover:bg-muted data-active:bg-muted"
+        className={`aui-thread-list-new flex items-center rounded-lg text-start hover:bg-muted data-active:bg-muted justify-start gap-1 p-3`}
         variant="ghost"
+        size={isCollapsed ? "icon" : "lg"}
       >
         <PlusIcon />
-        New Thread
+        {!isCollapsed && "New Thread"}
       </Button>
     </ThreadListPrimitive.New>
   );
