@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useRouter } from "next/navigation";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, VariantProps } from "class-variance-authority";
 import { PanelLeftIcon, Spade } from "lucide-react";
@@ -258,6 +259,7 @@ function SidebarLogo({
   onClick,
   ...props
 }: React.ComponentProps<typeof Button>) {
+  const router = useRouter();
   const { toggleSidebar, state } = useSidebar();
   const [isHovered, setIsHovered] = React.useState(false);
 
@@ -275,7 +277,7 @@ function SidebarLogo({
       onClick={(event) => {
         onClick?.(event);
         if (state === "expanded") {
-          window.open("https://spade.money", "_blank");
+          router.push("/");
         } else {
           toggleSidebar();
         }
