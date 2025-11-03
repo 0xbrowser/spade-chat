@@ -739,6 +739,45 @@ function SidebarMenuSubButton({
   );
 }
 
+const sidebarNavButtonVariants = cva(
+  "flex cursor-pointer items-center gap-2 rounded-md text-left text-sm transition-colors hover:bg-accent",
+  {
+    variants: {
+      collapsed: {
+        true: "size-8 justify-center ml-1",
+        false: "w-full justify-start px-3 py-1.5",
+      },
+    },
+    defaultVariants: {
+      collapsed: false,
+    },
+  }
+);
+
+function SidebarNavButton({
+  asChild = false,
+  className,
+  children,
+  ...props
+}: React.ComponentProps<"button"> & {
+  asChild?: boolean;
+}) {
+  const Comp = asChild ? Slot : "button";
+  const { state } = useSidebar();
+  const isCollapsed = state === "collapsed";
+
+  return (
+    <Comp
+      data-slot="sidebar-nav-button"
+      data-sidebar="nav-button"
+      className={cn(sidebarNavButtonVariants({ collapsed: isCollapsed }), className)}
+      {...props}
+    >
+      {children}
+    </Comp>
+  );
+}
+
 function SidebarAccount({
   icon: Icon,
   title = "Account",
@@ -758,8 +797,8 @@ function SidebarAccount({
         data-sidebar="account"
         data-slot="sidebar-account"
         className={cn(
-          "aui-sidebar-account flex items-center justify-start p-2 gap-2 rounded-lg text-left text-sm hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors",
-          state === "collapsed" ? "size-10" : "w-full py-2",
+          "aui-sidebar-account flex items-center px-1.5 py-2 gap-2 rounded-lg text-left text-sm hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors",
+          state === "collapsed" ? "size-10 justify-center" : "w-full justify-start",
           className
         )}
         {...props}
@@ -802,6 +841,7 @@ export {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
+  SidebarNavButton,
   SidebarProvider,
   SidebarRail,
   SidebarSeparator,

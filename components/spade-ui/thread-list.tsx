@@ -30,7 +30,7 @@ const ThreadListNew: FC = () => {
         variant="ghost"
         size={isCollapsed ? "icon" : "lg"}
       >
-        <PlusIcon />
+        <PlusIcon className="mr-1" />
         {!isCollapsed && "New chat"}
       </Button>
     </ThreadListPrimitive.New>
@@ -73,8 +73,8 @@ const ThreadListSkeleton: FC = () => {
 
 const ThreadListItem: FC = () => {
   return (
-    <ThreadListItemPrimitive.Root className="aui-thread-list-item flex items-center gap-2 rounded-lg transition-all hover:bg-muted focus-visible:bg-muted focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none data-active:bg-muted overflow-hidden">
-      <ThreadListItemPrimitive.Trigger className="aui-thread-list-item-trigger flex-grow px-3 py-2 text-start overflow-hidden">
+    <ThreadListItemPrimitive.Root className="aui-thread-list-item flex items-center gap-2 rounded-lg transition-all hover:bg-muted focus-visible:bg-muted focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none data-active:bg-muted overflow-hidden cursor-pointer">
+      <ThreadListItemPrimitive.Trigger className="aui-thread-list-item-trigger flex-grow px-3 py-2 text-start overflow-hidden cursor-pointer">
         <ThreadListItemTitle />
       </ThreadListItemPrimitive.Trigger>
     </ThreadListItemPrimitive.Root>
