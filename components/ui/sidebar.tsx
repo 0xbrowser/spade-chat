@@ -756,11 +756,13 @@ const sidebarNavButtonVariants = cva(
 
 function SidebarNavButton({
   asChild = false,
+  isActive = false,
   className,
   children,
   ...props
 }: React.ComponentProps<"button"> & {
   asChild?: boolean;
+  isActive?: boolean;
 }) {
   const Comp = asChild ? Slot : "button";
   const { state } = useSidebar();
@@ -770,7 +772,12 @@ function SidebarNavButton({
     <Comp
       data-slot="sidebar-nav-button"
       data-sidebar="nav-button"
-      className={cn(sidebarNavButtonVariants({ collapsed: isCollapsed }), className)}
+      data-active={isActive}
+      className={cn(
+        sidebarNavButtonVariants({ collapsed: isCollapsed }),
+        isActive && "bg-accent font-medium",
+        className
+      )}
       {...props}
     >
       {children}
@@ -781,7 +788,7 @@ function SidebarNavButton({
 function SidebarAccount({
   icon: Icon,
   title = "Account",
-  status = "Online",
+  status = "online",
   className,
   ...props
 }: React.ComponentProps<"button"> & {

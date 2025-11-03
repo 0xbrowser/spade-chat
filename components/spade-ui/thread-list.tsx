@@ -5,10 +5,12 @@ import {
   useAssistantState,
 } from "@assistant-ui/react";
 import { PlusIcon } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useSidebar } from "@/components/ui/sidebar";
+import { cn } from "@/lib/utils";
 
 export const ThreadList: FC = () => {
   return (
@@ -22,11 +24,25 @@ export const ThreadList: FC = () => {
 const ThreadListNew: FC = () => {
   const { state } = useSidebar();
   const isCollapsed = state === "collapsed";
+  const pathname = usePathname();
+  const router = useRouter();
+  const isActive = pathname === "/";
+
+  const handleNewChat = () => {
+    if (pathname !== "/") {
+      router.push("/");
+    }
+  };
 
   return (
     <ThreadListPrimitive.New asChild>
       <Button
-        className={`aui-thread-list-new flex items-center rounded-lg text-start hover:bg-muted data-active:bg-muted justify-start gap-1 p-3`}
+        data-active={isActive}
+        onClick={handleNewChat}
+        className={cn(
+          "aui-thread-list-new flex items-center rounded-lg text-start hover:bg-muted justify-start gap-1 p-3",
+          isActive && "bg-muted font-medium"
+        )}
         variant="ghost"
         size={isCollapsed ? "icon" : "lg"}
       >
