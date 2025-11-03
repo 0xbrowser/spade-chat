@@ -40,7 +40,7 @@ export default function TokensPage() {
                     <div>
                       <h1 className="mb-4 text-xl font-bold">AI Agents</h1>
                       <div className="space-y-4">
-                        <div className="rounded-xl border border-border bg-card p-4">
+                        <div className="rounded-xl border border-border bg-card py-4 px-8">
                           <div className="flex justify-between">
                             <div>
                               <h2 className="mb-1 text-base font-semibold">
@@ -54,14 +54,14 @@ export default function TokensPage() {
                               <PlusIcon className="size-4" />
                             </Button>
                           </div>
-                          <div className="rounded-lg bg-muted p-3">
+                          <div className="rounded-lg bg-muted py-3 px-6">
                             <div className="font-bold">0 tokens</div>
                             <p className="mt-1 text-xs text-muted-foreground">
                               Available balance
                             </p>
                           </div>
                         </div>
-                        <div className="rounded-xl border border-border bg-card p-4">
+                        <div className="rounded-xl border border-border bg-card py-4 px-8">
                           <h2 className="mb-3 text-base font-semibold">
                             History
                           </h2>
@@ -75,7 +75,7 @@ export default function TokensPage() {
                     <div>
                       <h1 className="mb-4 text-xl font-bold">Airdrop</h1>
                       <div className="space-y-4">
-                        <div className="rounded-xl border border-border bg-card p-4">
+                        <div className="rounded-xl border border-border bg-card py-4 px-8">
                           <h2 className="mb-1 text-base font-semibold">
                             Token Allowance
                           </h2>
@@ -83,7 +83,7 @@ export default function TokensPage() {
                             Receive a future airdrop of $SP tokens. Start using AI agents to boost your token
                             allowance.
                           </p>
-                          <div className="rounded-lg bg-muted p-3">
+                          <div className="rounded-lg bg-muted py-3 px-6">
                             <div className="font-bold">0 $SP</div>
                             <p className="mt-1 text-xs text-muted-foreground">
                               Current allowance

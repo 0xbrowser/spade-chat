@@ -36,27 +36,27 @@ export default function PromptsPage() {
                   </button>
                 </div>
                 <div className="space-y-4">
-                  <div className="rounded-xl border border-border bg-card p-4">
-                    <h2 className="mb-3 text-base font-semibold">Your Prompts</h2>
+                  <div className="rounded-xl border border-border bg-card py-4 px-8">
+                    <h2 className="mb-1 text-base font-semibold">Your Prompts</h2>
                     <p className="text-sm text-muted-foreground">
                       Create and manage your custom prompts for AI interactions.
                     </p>
                   </div>
                   <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-                    <div className="rounded-xl border border-border bg-card p-3 hover:border-primary/50 transition-colors">
-                      <h3 className="mb-1.5 text-sm font-semibold">Example Prompt</h3>
+                    <div className="rounded-xl border border-border bg-card p-4 hover:border-primary/50 transition-colors">
+                      <h3 className="mb-1.5 text-sm font-semibold">Example Prompt I</h3>
                       <p className="text-xs text-muted-foreground">
-                        You are a helpful assistant focus on web3 and blockchain that can answer questions and help with tasks.
+                        You are a helpful assistant focus on web3 and blockchain that can answer various questions.
                       </p>
                     </div>
-                    <div className="rounded-xl border border-border bg-card p-3 hover:border-primary/50 transition-colors">
-                      <h3 className="mb-1.5 text-sm font-semibold">Example Prompt</h3>
+                    <div className="rounded-xl border border-border bg-card p-4 hover:border-primary/50 transition-colors">
+                      <h3 className="mb-1.5 text-sm font-semibold">Example Prompt II</h3>
                       <p className="text-xs text-muted-foreground">
                         You are good at generating trading strategies for the crypto market and provide detailed analysis.
                       </p>
                     </div>
-                    <div className="rounded-xl border border-border bg-card p-3 hover:border-primary/50 transition-colors">
-                      <h3 className="mb-1.5 text-sm font-semibold">Example Prompt</h3>
+                    <div className="rounded-xl border border-border bg-card p-4 hover:border-primary/50 transition-colors">
+                      <h3 className="mb-1.5 text-sm font-semibold">Example Prompt III</h3>
                       <p className="text-xs text-muted-foreground">
                         You are professional user of Spade AI and can teach me how to use it step by step with examples.
                       </p>

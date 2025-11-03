@@ -19,7 +19,7 @@ export default function StrategiesPage() {
         <div className="flex h-dvh w-full pr-0.5">
           <ThreadListSidebar />
           <SidebarInset>
-          <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
+          <header className="flex h-16 shrink-0 items-center gap-2 border-b p-4">
             <div className="md:hidden h-10 w-10 flex items-center justify-center">
               <Spade className="size-4" />
             </div>
@@ -36,13 +36,13 @@ export default function StrategiesPage() {
                   </button>
                 </div>
                 <div className="space-y-4">
-                  <div className="rounded-xl border border-border bg-card p-4">
+                  <div className="rounded-xl border border-border bg-card py-4 px-8">
                     <h2 className="mb-1 text-base font-semibold">Trading Strategies</h2>
                     <p className="text-sm text-muted-foreground mb-4">
                       Create, test, and deploy your trading strategies.
                     </p>
                     <div className="grid gap-3 md:grid-cols-2">
-                      <div className="rounded-lg bg-muted p-3">
+                      <div className="rounded-lg bg-muted py-3 px-6">
                         <div className="mb-1.5 flex items-center justify-between">
                           <h3 className="text-sm font-semibold">Active Strategies</h3>
                           <span className="rounded-full bg-green-500/10 px-2 py-0.5 text-xs font-medium text-green-500">
@@ -53,7 +53,7 @@ export default function StrategiesPage() {
                           Currently running strategies
                         </p>
                       </div>
-                      <div className="rounded-lg bg-muted p-3">
+                      <div className="rounded-lg bg-muted py-3 px-6">
                         <div className="mb-1.5 flex items-center justify-between">
                           <h3 className="text-sm font-semibold">Draft Strategies</h3>
                           <span className="rounded-full bg-yellow-500/10 px-2 py-0.5 text-xs font-medium text-yellow-500">
@@ -66,8 +66,8 @@ export default function StrategiesPage() {
                       </div>
                     </div>
                   </div>
-                  <div className="rounded-xl border border-border bg-card p-4">
-                    <h2 className="mb-3 text-base font-semibold">Performance</h2>
+                  <div className="rounded-xl border border-border bg-card py-4 px-8">
+                    <h2 className="mb-1 text-base font-semibold">Performance</h2>
                     <p className="text-sm text-muted-foreground">
                       Track your strategies&apos; performance and analytics.
                     </p>
