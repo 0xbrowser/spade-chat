@@ -28,7 +28,7 @@ export function ThreadListSidebar({
       </SidebarContent>
       <SidebarRail />
       <SidebarFooter className="aui-sidebar-footer">
-        <SidebarAccount icon={User} title="Account" status="Online" />
+        <SidebarAccount icon={User} title="No account" status="Offline" />
       </SidebarFooter>
     </Sidebar>
   );

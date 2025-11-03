@@ -26,7 +26,7 @@ const ThreadListNew: FC = () => {
   return (
     <ThreadListPrimitive.New asChild>
       <Button
-        className={`aui-thread-list-new flex items-center rounded-lg text-start hover:bg-muted data-active:bg-muted justify-start gap-1 p-3`}
+        className={`aui-thread-list-new flex items-center text-start hover:bg-accent data-active:bg-accent justify-start gap-2 p-3`}
         variant="ghost"
         size={isCollapsed ? "icon" : "lg"}
       >
@@ -73,7 +73,7 @@ const ThreadListSkeleton: FC = () => {
 
 const ThreadListItem: FC = () => {
   return (
-    <ThreadListItemPrimitive.Root className="aui-thread-list-item flex items-center gap-2 rounded-lg transition-all hover:bg-muted focus-visible:bg-muted focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none data-active:bg-muted overflow-hidden">
+    <ThreadListItemPrimitive.Root className="aui-thread-list-item flex items-center gap-2 neobrutalism-border-thin neobrutalism-shadow-sm transition-all hover:bg-accent focus-visible:bg-accent focus-visible:outline-offset-2 focus-visible:outline-2 focus-visible:outline-ring data-active:bg-accent overflow-hidden">
       <ThreadListItemPrimitive.Trigger className="aui-thread-list-item-trigger flex-grow px-3 py-2 text-start overflow-hidden">
         <ThreadListItemTitle />
       </ThreadListItemPrimitive.Trigger>
@@ -83,7 +83,7 @@ const ThreadListItem: FC = () => {
 
 const ThreadListItemTitle: FC = () => {
   return (
-    <span className="aui-thread-list-item-title text-sm truncate block">
+    <span className="aui-thread-list-item-title text-sm font-medium truncate block">
       <ThreadListItemPrimitive.Title fallback="New chat" />
     </span>
   );

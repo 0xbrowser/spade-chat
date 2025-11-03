@@ -23,9 +23,9 @@ export const Assistant = () => {
         <div className="flex h-dvh w-full pr-0.5">
           <ThreadListSidebar />
           <SidebarInset>
-            <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
-              <div className="md:hidden h-10 w-10 flex items-center justify-center">
-                <Spade className="size-4" />
+            <header className="flex h-16 shrink-0 items-center gap-2 neobrutalism-border-thin border-t-0 border-l-0 border-r-0 px-4 bg-accent">
+              <div className="md:hidden h-10 w-10 flex items-center justify-center neobrutalism-border-thin neobrutalism-shadow-sm bg-primary">
+                <Spade className="size-4 text-primary-foreground" />
               </div>
               <SidebarTrigger className="md:hidden ml-auto" />
             </header>

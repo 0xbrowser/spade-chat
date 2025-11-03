@@ -237,7 +237,7 @@ function Sidebar({
           // Adjust the padding for floating and inset variants.
           variant === "floating" || variant === "inset"
             ? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]"
-            : "group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=right]:border-l",
+            : "group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:neobrutalism-border-thin group-data-[side=left]:border-l-0 group-data-[side=left]:border-t-0 group-data-[side=left]:border-b-0 group-data-[side=right]:neobrutalism-border-thin group-data-[side=right]:border-r-0 group-data-[side=right]:border-t-0 group-data-[side=right]:border-b-0",
           className,
         )}
         {...props}
@@ -245,7 +245,7 @@ function Sidebar({
         <div
           data-sidebar="sidebar"
           data-slot="sidebar-inner"
-          className="flex h-full w-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow-sm"
+          className="flex h-full w-full flex-col bg-sidebar group-data-[variant=floating]:neobrutalism-border group-data-[variant=floating]:neobrutalism-shadow"
         >
           {children}
         </div>
@@ -753,26 +753,26 @@ function SidebarAccount({
   const { state } = useSidebar();
 
   return (
-    <div className="h-12 flex items-center">
+    <div className="h-14 flex items-center">
       <button
         data-sidebar="account"
         data-slot="sidebar-account"
         className={cn(
-          "aui-sidebar-account flex items-center justify-start p-2 gap-2 rounded-lg text-left text-sm hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors",
+          "aui-sidebar-account flex items-center justify-start p-2 gap-2 neobrutalism-border-thin neobrutalism-shadow-sm text-left text-sm hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors bg-sidebar-primary text-sidebar-primary-foreground",
           state === "collapsed" ? "size-10" : "w-full py-2",
           className
         )}
         {...props}
       >
-        <div className="aui-sidebar-footer-icon-wrapper flex aspect-square size-7 items-center justify-center rounded-full text-white bg-white/10 shrink-0">
+        <div className="aui-sidebar-footer-icon-wrapper flex aspect-square size-7 items-center justify-center neobrutalism-border-thin bg-sidebar-accent text-sidebar-accent-foreground shrink-0">
           {Icon && <Icon className="aui-sidebar-footer-icon size-4" />}
         </div>
         {state !== "collapsed" && (
           <div className="aui-sidebar-footer-heading flex flex-col gap-0.5 leading-none">
-            <span className="aui-sidebar-footer-title font-semibold">
+            <span className="aui-sidebar-footer-title font-bold">
               {title}
             </span>
-            <span className="text-xs">{status}</span>
+            <span className="text-xs font-medium">{status}</span>
           </div>
         )}
       </button>
