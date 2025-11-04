@@ -44,7 +44,7 @@ const PromptsHeader: FC = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="mb-4 flex items-center justify-between"
+      className="mb-4 flex items-center justify-between flex-wrap gap-2"
     >
       <h1 className="text-xl font-bold">Archives</h1>
       <button className="flex items-center justify-center gap-2 cursor-pointer rounded-lg bg-primary p-2 text-xs font-medium text-primary-foreground hover:bg-primary/90">
@@ -80,7 +80,7 @@ const PromptsList: FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
-          className="rounded-xl border border-border bg-card p-4 hover:border-primary/50 transition-colors"
+          className="rounded-xl border border-border bg-card py-4 px-8 hover:border-primary/50 transition-colors"
         >
           <h3 className="mb-1.5 text-sm font-semibold">{prompt.title}</h3>
           <p className="text-xs text-muted-foreground">{prompt.description}</p>

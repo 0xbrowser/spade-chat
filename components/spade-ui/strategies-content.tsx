@@ -23,7 +23,7 @@ const StrategiesHeader: FC = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="mb-4 flex items-center justify-between"
+      className="mb-4 flex items-center justify-between flex-wrap gap-2"
     >
       <h1 className="text-xl font-bold">Strategies</h1>
       <button className="flex items-center justify-center gap-2 cursor-pointer rounded-lg bg-primary p-2 text-xs font-medium text-primary-foreground hover:bg-primary/90">
@@ -47,27 +47,27 @@ const TradingStrategiesCard: FC = () => {
         Create, test, and deploy your trading strategies.
       </p>
       <div className="grid gap-3 md:grid-cols-2">
-        <div className="rounded-lg bg-muted py-3 px-6">
-          <div className="mb-1.5 flex items-center justify-between">
+        <div className="rounded-lg bg-muted py-3 px-6 flex items-center justify-between gap-2">
+          <div>
             <h3 className="text-sm font-semibold">Active Strategies</h3>
-            <span className="rounded-full bg-green-500/10 px-2 py-0.5 text-xs font-medium text-green-500">
-              0
-            </span>
+            <p className="text-xs text-muted-foreground">
+              Currently running strategies
+            </p>
           </div>
-          <p className="text-xs text-muted-foreground">
-            Currently running strategies
-          </p>
+          <span className="rounded-full bg-green-500/10 px-2 py-0.5 text-xs font-medium text-green-500">
+            0
+          </span>
         </div>
-        <div className="rounded-lg bg-muted py-3 px-6">
-          <div className="mb-1.5 flex items-center justify-between">
+        <div className="rounded-lg bg-muted py-3 px-6 flex items-center justify-between gap-2">
+          <div>
             <h3 className="text-sm font-semibold">Draft Strategies</h3>
-            <span className="rounded-full bg-yellow-500/10 px-2 py-0.5 text-xs font-medium text-yellow-500">
-              0
-            </span>
+            <p className="text-xs text-muted-foreground">
+              Strategies in development
+            </p>
           </div>
-          <p className="text-xs text-muted-foreground">
-            Strategies in development
-          </p>
+          <span className="rounded-full bg-yellow-500/10 px-2 py-0.5 text-xs font-medium text-yellow-500">
+            0
+          </span>
         </div>
       </div>
     </m.div>

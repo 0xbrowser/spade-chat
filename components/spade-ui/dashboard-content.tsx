@@ -109,7 +109,7 @@ const DashboardHeader: FC<{ walletAddress: string }> = ({ walletAddress }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="mb-6 flex items-center justify-between"
+      className="mb-6 flex items-center justify-between flex-wrap gap-2"
     >
       <div>
         <h1 className="mb-2 text-xl font-bold">Overview</h1>
@@ -143,7 +143,7 @@ const TotalValueCard: FC<{
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: 0.1 }}
-      className="mb-6 flex justify-between items-center rounded-xl border border-border bg-card px-8 py-4"
+      className="mb-6 flex flex-wrap justify-between items-center gap-4 rounded-xl border border-border bg-card px-8 py-4"
     >
       <div>
         <div className="mb-1 text-sm text-muted-foreground">

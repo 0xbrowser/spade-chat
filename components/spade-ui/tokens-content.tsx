@@ -44,7 +44,7 @@ const TokenBalanceCard: FC = () => {
       transition={{ duration: 0.3, delay: 0.1 }}
       className="rounded-xl border border-border bg-card py-4 px-8"
     >
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center gap-2">
         <div>
           <h2 className="mb-1 text-base font-semibold">Token Balance</h2>
           <p className="mb-3 text-xs text-muted-foreground">
